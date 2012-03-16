@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>eu.hecnet.apps</groupId>
+	<artifactId>semantic-scanner</artifactId>
+	<packaging>war</packaging>
+	<version>1.0-SNAPSHOT</version>
+	<name>semantic-scanner</name>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<openvms-filetype-detectors.version>1.0-SNAPSHOT</openvms-filetype-detectors.version>
+		<jetty.version>8.1.1.v20120215</jetty.version>
+        <spring.version>3.1.0.RELEASE</spring.version>
+        <cglib.version>2.2.2</cglib.version>
+		<slf4j.version>1.5.10</slf4j.version>
+		<java.version>1.7</java.version>
+		<junit.version>4.8.2</junit.version>
+		<webapi.version>6.0</webapi.version>
+	</properties>
+
+	<dependencies>
+		<!-- OpenVMS specific implementations of java.nio.file.spi.FileTypeDetector -->
+		<dependency>
+			<groupId>eu.hecnet.apps</groupId>
+			<artifactId>openvms-filetype-detectors</artifactId>
+			<version>${openvms-filetype-detectors.version}</version>
+		</dependency>
+		
+		<!-- JSON -->
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-lgpl</artifactId>
+			<version>1.9.4</version>
+		</dependency>
+            		
+		<!-- Semantic Web RDF -->
+		<dependency>
+			<groupId>org.ow2.weblab.core.helpers</groupId>
+			<artifactId>rdf-helper-jena</artifactId>
+			<version>1.3.2</version>
+		</dependency>
+		            
+   		<!-- http://incubator.apache.org/jena/download/maven.html -->
+		<dependency>
+  			<groupId>org.apache.jena</groupId>
+  			<artifactId>jena-arq</artifactId>
+  			<version>2.9.0-incubating</version>
+		</dependency>
+		
+		<!-- Bean Validation Dependencies -->
+
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+			<version>1.0.0.GA</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>4.0.0.GA</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<!-- JPA Persistence Dependencies -->
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>3.6.0.Final</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>hsqldb</groupId>
+			<artifactId>hsqldb</artifactId>
+			<version>1.8.0.10</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate.javax.persistence</groupId>
+			<artifactId>hibernate-jpa-2.0-api</artifactId>
+			<version>1.0.0.Final</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<!-- jetty v8 websockets -->
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-websocket</artifactId>
+			<version>${jetty.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-server</artifactId>
+			<version>${jetty.version}</version>
+		</dependency>
+            
+        <dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-web-api</artifactId>
+			<version>${webapi.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+        <!-- servlet api for websocket implementation -->
+		<dependency>
+			<groupId>org.mortbay.jetty</groupId>
+			<artifactId>servlet-api-2.5</artifactId>
+			<version>6.1H.14.1</version>
+		</dependency>
+                        
+         <!-- Spring Dependencies -->
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
+			<exclusions>
+				<!-- Exclude Commons Logging in favor of SLF4j -->
+				<exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${spring.version}</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+
+      <dependency>
+         <groupId>cglib</groupId>
+         <artifactId>cglib-nodep</artifactId>
+         <version>${cglib.version}</version>
+         <scope>runtime</scope>
+      </dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${spring.version}</version>
+			<type>jar</type>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- DB Dependencies -->
+		<dependency> 
+			<groupId>com.oracle</groupId> 
+			<artifactId>ojdbc14</artifactId> 
+			<version>10.2.0.3.0</version>
+			<scope>runtime</scope>
+		</dependency> 
+
+		<dependency>
+			<groupId>commons-dbcp</groupId>
+			<artifactId>commons-dbcp</artifactId>
+			<version>20030825.184428</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>commons-pool</groupId>
+			<artifactId>commons-pool</artifactId>
+			<version>20030825.183949</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+
+		<!-- View Dependencies -->
+		<dependency>
+			<groupId>taglibs</groupId>
+			<artifactId>standard</artifactId>
+			<version>1.1.2</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+
+
+		<!-- Test Dependencies -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- logging -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>${slf4j.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>${slf4j.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.15</version>
+			<exclusions>
+				<exclusion>
+					<groupId>com.sun.jdmk</groupId>
+					<artifactId>jmxtools</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.sun.jmx</groupId>
+					<artifactId>jmxri</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+
+		<dependency>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.1.2</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+	</dependencies>
+
+	<repositories>
+		<repository>
+			<id>org.eclipse.jetty</id>
+  			<name>Jetty Eclipse Repository</name>
+		    <url>http://mvnrepository.com/artifact/org.eclipse.jetty</url>
+		</repository>
+		
+		<repository>
+			<id>org.springframework.maven.milestone</id>
+			<name>Spring Maven Milestone Repository</name>
+			<url>http://maven.springframework.org/milestone</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+		
+		<repository>
+		  <id>java.net2</id>
+		  <name>Repository hosting the jee6 artifacts</name>
+		  <url>http://download.java.net/maven/2</url>
+		</repository>
+	</repositories>
+
+	<build>
+		<finalName>semantic-scanner</finalName>
+		<plugins>
+
+			<!-- Facilitates downloading source and javadoc in Eclipse -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-eclipse-plugin</artifactId>
+				<version>2.8</version>
+				<configuration>
+					<wtpversion>2.0</wtpversion>
+					<downloadSources>true</downloadSources>
+					<downloadJavadocs>true</downloadJavadocs>
+				</configuration>
+			</plugin>
+
+			<!-- Plugin to run and test through maven -->
+			<plugin>
+				<groupId>org.mortbay.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<version>${jetty.version}</version>
+				<configuration>
+					<scanIntervalSeconds>0</scanIntervalSeconds>
+					<webAppConfig>
+						<contextPath>/semantic-scanner</contextPath>
+						<descriptor>${basedir}/src/main/webapp/web.xml</descriptor>
+					</webAppConfig>
+				</configuration>
+			</plugin>
+
+			<!-- Ensures we are compiling at right level -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+				</configuration>
+			</plugin>
+
+			<!-- Tomcat plugin for embedded tomcat -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>tomcat-maven-plugin</artifactId>
+				<version>1.1</version>
+				<configuration>
+					<path>/${project.build.finalName}</path>
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</build>
+</project>
