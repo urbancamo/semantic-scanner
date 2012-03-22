@@ -1,0 +1,5 @@
+PREFIX file:	<http://hecnet.eu/file-rdf/1.0#>
+SELECT DISTINCT ?contentType
+WHERE {	?uri file:CONTENT_TYPE ?contentType . }
+ORDER BY asc(?contentType)
+

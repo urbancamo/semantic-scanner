@@ -1,0 +1,5 @@
+PREFIX file:	<http://hecnet.eu/file-rdf/1.0#>
+SELECT ?x ?filename
+WHERE {	?x file:CONTENT_TYPE "vms/dcl-script" . 
+    	?x file:FILENAME ?filename . }
+
