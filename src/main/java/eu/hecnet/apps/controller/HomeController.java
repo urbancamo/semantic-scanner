@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import eu.hecnet.apps.scanner.ScanCommand;
 
@@ -19,8 +20,7 @@ public class HomeController {
 	@Autowired
 	private ScanCommand defaultScanCommand;
 
-	private static final Logger logger = LoggerFactory
-			.getLogger(HomeController.class);
+	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
 	/**
 	 * Selects the home page and populates the model with a message
@@ -31,14 +31,17 @@ public class HomeController {
 		return "home";
 	}
 
-	@RequestMapping(method = RequestMethod.POST, value = "start")
-	public String startScan(Model model) {
-		logger.info("Received start scan request");
+	@RequestMapping(value = "/", method = RequestMethod.POST)
+	public String processCommand(Model model, @RequestParam("action") String action) {
+		logger.info("Received home page request for " + action);
 		// Add information to the model here...
-
-		model.addAttribute("archiveName", defaultScanCommand.getArchiveName());
-		model.addAttribute("archiveBase", defaultScanCommand.getArchiveBase());
-
-		return "scan";
+		if ("Scan".equals(action)) {
+			model.addAttribute("archiveName", defaultScanCommand.getArchiveName());
+			model.addAttribute("archiveBase", defaultScanCommand.getArchiveBase());
+			return "scan";
+		} else if ("Query".equals(action)) {
+			return "redirect:query";
+		}
+		return "";
 	}
 }

@@ -1,6 +1,5 @@
 package eu.hecnet.apps.scanner.file;
 
-import eu.hecnet.apps.scanner.file.PieChartColors.Color;
 
 /**
  * Java version of the data required for the file type pie chart

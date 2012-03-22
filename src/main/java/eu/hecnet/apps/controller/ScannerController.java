@@ -8,16 +8,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
- * Sample controller for going to the home page with a message
+ * Controller for the scanner page - very simple as the scanner page is Web
+ * Socket based
  */
 @Controller
 public class ScannerController {
 
-	// @Autowired
-	// private ArchiveScanner scanner;
-
-	private static final Logger logger = LoggerFactory
-			.getLogger(ScannerController.class);
+	private static final Logger logger = LoggerFactory.getLogger(ScannerController.class);
 
 	/**
 	 * Selects the home page and populates the model with a message

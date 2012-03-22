@@ -37,12 +37,21 @@
 	</servlet-mapping>
 
 	<servlet>
-		<servlet-name>feedbackWebSocket</servlet-name>
-		<servlet-class>eu.hecnet.apps.websocket.FeedbackWebSocketServlet</servlet-class>
+		<servlet-name>scanWebSocket</servlet-name>
+		<servlet-class>eu.hecnet.apps.websocket.ScanWebSocketServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>feedbackWebSocket</servlet-name>
-		<url-pattern>/feedbackWebSocket/*</url-pattern>
+		<servlet-name>scanWebSocket</servlet-name>
+		<url-pattern>/scanWebSocket/*</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>queryWebSocket</servlet-name>
+		<servlet-class>eu.hecnet.apps.websocket.QueryWebSocketServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>queryWebSocket</servlet-name>
+		<url-pattern>/queryWebSocket/*</url-pattern>
 	</servlet-mapping>
 
 

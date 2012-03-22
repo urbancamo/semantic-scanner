@@ -29,6 +29,8 @@ BODY {
 	background : #FFF;
 	border-top : 5px solid #FFF;
 	color : #444;
+	margin : 0 auto;
+	width : 800px;
 }
 
 A {
@@ -397,8 +399,8 @@ footer {
 	}
 	footer a, footer p {
 	  color : #666;
+	  font-style: italic;
 	  display : inline;
-	  font-size : 10px;
 	}
 
 /* Wrappers */

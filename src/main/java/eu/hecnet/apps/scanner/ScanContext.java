@@ -2,11 +2,11 @@ package eu.hecnet.apps.scanner;
 
 import java.io.File;
 
-import eu.hecnet.apps.websocket.FeedbackWebSocket;
+import eu.hecnet.apps.websocket.ScanWebSocket;
 
 public class ScanContext {
 
-	private FeedbackWebSocket socket;
+	private ScanWebSocket socket;
 
 	private File archiveBase;
 	private File current;
@@ -27,11 +27,11 @@ public class ScanContext {
 		this.current = current;
 	}
 
-	public FeedbackWebSocket getSocket() {
+	public ScanWebSocket getSocket() {
 		return socket;
 	}
 
-	public void setSocket(FeedbackWebSocket socket) {
+	public void setSocket(ScanWebSocket socket) {
 		this.socket = socket;
 	}
 }

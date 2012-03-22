@@ -286,7 +286,7 @@
 				<artifactId>jetty-maven-plugin</artifactId>
 				<version>${jetty.version}</version>
 				<configuration>
-					<scanIntervalSeconds>0</scanIntervalSeconds>
+					<scanIntervalSeconds>10</scanIntervalSeconds>
 					<webAppConfig>
 						<contextPath>/semantic-scanner</contextPath>
 						<descriptor>${basedir}/src/main/webapp/web.xml</descriptor>

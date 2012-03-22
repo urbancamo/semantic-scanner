@@ -5,11 +5,10 @@ import java.util.Map;
 
 public class FileTypesMap {
 	private Map<String, FileTypeCounter> fileTypes;
-	private PieChartColors colors;
 
 	public FileTypesMap() {
 		fileTypes = new HashMap<String, FileTypeCounter>();
-		colors = new PieChartColors();
+		new PieChartColors();
 	}
 
 	public void bumpOrCreateFileType(String fileType) {
@@ -27,8 +26,7 @@ public class FileTypesMap {
 		StringBuffer sb = new StringBuffer();
 		sb.append("[\n");
 		for (FileTypeCounter counter : fileTypes.values()) {
-			sb.append(" [ fileType = " + counter.getFileType() + ", count = "
-					+ counter.getCount() + " ] \n");
+			sb.append(" [ fileType = " + counter.getFileType() + ", count = " + counter.getCount() + " ] \n");
 		}
 		return sb.toString();
 	}
@@ -37,9 +35,8 @@ public class FileTypesMap {
 		FileTypeCounterPie pieData[] = new FileTypeCounterPie[fileTypes.size()];
 		int i = 0;
 		for (FileTypeCounter counter : fileTypes.values()) {
-			FileTypeCounterPie pieDatum = new FileTypeCounterPie(
-					counter.getFileType(), colors.getColorArray(i), ""
-							+ counter.getCount());
+			FileTypeCounterPie pieDatum = new FileTypeCounterPie(counter.getFileType(), PieChartColors.getColorArray(i), ""
+					+ counter.getCount());
 			pieData[i++] = pieDatum;
 		}
 		return pieData;

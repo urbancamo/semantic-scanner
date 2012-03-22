@@ -13,16 +13,21 @@ public class ScanCommand {
 	private String archiveName;
 	private String archiveBase;
 	private ScanCommandUpdateInterval updateInterval;
+	private boolean persist;
+	private String format;
 
 	public ScanCommand() {
 	}
 
 	public ScanCommand(ScanCommandType command, String archiveName,
-			String archiveBase, String updateInterval) {
+			String archiveBase, String updateInterval, boolean persist,
+			String format) {
 		setCommand(command);
 		setArchiveName(archiveName);
 		setArchiveBase(archiveBase);
 		setUpdateInterval(updateInterval);
+		setPersist(persist);
+		setFormat(format);
 	}
 
 	public ScanCommand(ScanCommandType command) {
@@ -77,5 +82,21 @@ public class ScanCommand {
 
 	public boolean isUpdateIntervalOnFileScan() {
 		return updateInterval == ScanCommandUpdateInterval.FILE;
+	}
+
+	public boolean isPersist() {
+		return persist;
+	}
+
+	public void setPersist(boolean persist) {
+		this.persist = persist;
+	}
+
+	public String getFormat() {
+		return format;
+	}
+
+	public void setFormat(String format) {
+		this.format = format;
 	}
 }

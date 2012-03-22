@@ -19,6 +19,7 @@ public class FILE {
 	private static Model m = ModelFactory.createDefaultModel();
 
 	public static final Property FILE = m.createProperty(uri + "FILE");
+	public static final Property PATHNAME = m.createProperty(uri + "PATHNAME");
 	public static final Property FILENAME = m.createProperty(uri + "FILENAME");
 	public static final Property BASENAME = m.createProperty(uri + "BASENAME");
 	public static final Property EXT = m.createProperty(uri + "EXT");
@@ -27,5 +28,7 @@ public class FILE {
 	public static final Property SIZE = m.createProperty(uri + "SIZE");
 	public static final Property CONTENT_TYPE = m.createProperty(uri
 			+ "CONTENT_TYPE");
+	public static final Property LEXICAL_USE = m.createProperty(uri
+			+ "LEXICAL_USE");
 
 }
