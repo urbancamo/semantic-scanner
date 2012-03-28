@@ -97,6 +97,9 @@
 </article>
 <aside>
 	<nav>
+		<form name="navigate" method="post">
+			<input type="submit" name="action" value="Home"/>
+		</form>
 		<form name="actions" action="">
 			<span>
 				<input id="start" type="button" value="Start..." onclick="sendAction('START');" />

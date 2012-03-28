@@ -21,28 +21,55 @@ public class LexicalRdf {
 	public Property NAME;
 	public Property HELP_URL;
 
-	public static String LEXICALS[] = { "F$CONTEXT", "F$CSID", "F$CVSI",
-			"F$CVTIME", "F$CVUI", "F$DEVICE", "F$DIRECTORY", "F$EDIT",
-			"F$ELEMENT", "F$ENVIRONMENT", "F$EXTRACT", "F$FAO",
-			"F$FILE_ATTRIBUTES", "F$GETDVI", "F$GETENV", "F$GETJPI",
-			"F$GETQUI", "F$GETSYI", "F$IDENTIFIER", "F$INTEGER", "F$LENGTH",
-			"F$LOCATE", "F$MESSAGE", "F$MODE", "F$PARSE", "F$PID",
-			"F$PRIVILEGE", "F$PROCESS", "F$SEARCH", "F$SETPRV", "F$STRING",
-			"F$TIME", "F$TRNLNM", "F$TYPE", "F$USER", "F$VERIFY" };
-
-	public static String HELP_BASE_URL = "http://slave/HyperReader?file=dsa1:[decw$book.openvms]vy4yaaa6.decw$book&Chunk=";
-	public static int HELP_CHUNK_START = 113;
+	public static String[] LEXICALS[] = {
+			{ "F$CONTEXT", "http://slave.hecnet.eu/HyperReader?file=dsa1:[decw$book.openvms]vy4yaaa6.decw$book&Chunk=113" },
+			{ "F$CSID", "http://slave.hecnet.eu/HyperReader?file=dsa1:[decw$book.openvms]vy4yaaa6.decw$book&Chunk=114" },
+			{ "F$CVSI", "http://slave.hecnet.eu/HyperReader?file=dsa1:[decw$book.openvms]vy4yaaa6.decw$book&Chunk=115" },
+			{ "F$CVTIME", "http://slave.hecnet.eu/HyperReader?file=dsa1:[decw$book.openvms]vy4yaaa6.decw$book&Chunk=116" },
+			{ "F$CVUI", "http://slave.hecnet.eu/HyperReader?file=dsa1:[decw$book.openvms]vy4yaaa6.decw$book&Chunk=117" },
+			{ "F$DEVICE", "http://slave.hecnet.eu/HyperReader?file=dsa1:[decw$book.openvms]vy4yaaa6.decw$book&Chunk=118" },
+			{ "F$DIRECTORY", "http://slave.hecnet.eu/HyperReader?file=dsa1:[decw$book.openvms]vy4yaaa6.decw$book&Chunk=119" },
+			{ "F$EDIT", "http://slave.hecnet.eu/HyperReader?file=dsa1:[decw$book.openvms]vy4yaaa6.decw$book&Chunk=120" },
+			{ "F$ELEMENT", "http://slave.hecnet.eu/HyperReader?file=dsa1:[decw$book.openvms]vy4yaaa6.decw$book&Chunk=121" },
+			{ "F$ENVIRONMENT", "http://slave.hecnet.eu/HyperReader?file=dsa1:[decw$book.openvms]vy4yaaa6.decw$book&Chunk=122" },
+			{ "F$EXTRACT", "http://slave.hecnet.eu/HyperReader?file=dsa1:[decw$book.openvms]vy4yaaa6.decw$book&Chunk=123" },
+			{ "F$FAO", "http://slave.hecnet.eu/HyperReader?file=dsa1:[decw$book.openvms]vy4yaaa6.decw$book&Chunk=124" },
+			{ "F$FILE_ATTRIBUTES", "http://slave.hecnet.eu/HyperReader?file=dsa1:[decw$book.openvms]vy4yaaa6.decw$book&Chunk=126" },
+			{ "F$GETDVI", "http://slave.hecnet.eu/HyperReader?file=dsa1:[decw$book.openvms]vy4yaaa6.decw$book&Chunk=128" },
+			{ "F$GETENV", "http://zinser.no-ip.info/www/eng/vms/qaa/getenv.htmlx" },
+			{ "F$GETJPI", "http://slave.hecnet.eu/HyperReader?file=dsa1:[decw$book.openvms]vy4yaaa6.decw$book&Chunk=132" },
+			{ "F$GETQUI", "http://slave.hecnet.eu/HyperReader?file=dsa1:[decw$book.openvms]vy4yaaa6.decw$book&Chunk=134" },
+			{ "F$GETSYI", "http://slave.hecnet.eu/HyperReader?file=dsa1:[decw$book.openvms]vy4yaaa6.decw$book&Chunk=137" },
+			{ "F$IDENTIFIER", "http://slave.hecnet.eu/HyperReader?file=dsa1:[decw$book.openvms]vy4yaaa6.decw$book&Chunk=140" },
+			{ "F$INTEGER", "http://slave.hecnet.eu/HyperReader?file=dsa1:[decw$book.openvms]vy4yaaa6.decw$book&Chunk=141" },
+			{ "F$LENGTH", "http://slave.hecnet.eu/HyperReader?file=dsa1:[decw$book.openvms]vy4yaaa6.decw$book&Chunk=142" },
+			{ "F$LOCATE", "http://slave.hecnet.eu/HyperReader?file=dsa1:[decw$book.openvms]vy4yaaa6.decw$book&Chunk=143" },
+			{ "F$MESSAGE", "http://slave.hecnet.eu/HyperReader?file=dsa1:[decw$book.openvms]vy4yaaa6.decw$book&Chunk=144" },
+			{ "F$MODE", "http://slave.hecnet.eu/HyperReader?file=dsa1:[decw$book.openvms]vy4yaaa6.decw$book&Chunk=146" },
+			{ "F$PARSE", "http://slave.hecnet.eu/HyperReader?file=dsa1:[decw$book.openvms]vy4yaaa6.decw$book&Chunk=147" },
+			{ "F$PID", "http://slave.hecnet.eu/HyperReader?file=dsa1:[decw$book.openvms]vy4yaaa6.decw$book&Chunk=148" },
+			{ "F$PRIVILEGE", "http://slave.hecnet.eu/HyperReader?file=dsa1:[decw$book.openvms]vy4yaaa6.decw$book&Chunk=149" },
+			{ "F$PROCESS", "http://slave.hecnet.eu/HyperReader?file=dsa1:[decw$book.openvms]vy4yaaa6.decw$book&Chunk=150" },
+			{ "F$SEARCH", "http://slave.hecnet.eu/HyperReader?file=dsa1:[decw$book.openvms]vy4yaaa6.decw$book&Chunk=151" },
+			{ "F$SETPRV", "http://slave.hecnet.eu/HyperReader?file=dsa1:[decw$book.openvms]vy4yaaa6.decw$book&Chunk=152" },
+			{ "F$STRING", "http://slave.hecnet.eu/HyperReader?file=dsa1:[decw$book.openvms]vy4yaaa6.decw$book&Chunk=153" },
+			{ "F$TIME", "http://slave.hecnet.eu/HyperReader?file=dsa1:[decw$book.openvms]vy4yaaa6.decw$book&Chunk=154" },
+			{ "F$TRNLNM", "http://slave.hecnet.eu/HyperReader?file=dsa1:[decw$book.openvms]vy4yaaa6.decw$book&Chunk=155" },
+			{ "F$TYPE", "http://slave.hecnet.eu/HyperReader?file=dsa1:[decw$book.openvms]vy4yaaa6.decw$book&Chunk=156" },
+			{ "F$USER", "http://slave.hecnet.eu/HyperReader?file=dsa1:[decw$book.openvms]vy4yaaa6.decw$book&Chunk=158" },
+			{ "F$VERIFY", "http://slave.hecnet.eu/HyperReader?file=dsa1:[decw$book.openvms]vy4yaaa6.decw$book&Chunk=159" } };
 
 	private Map<String, Resource> lexicalResources = new HashMap<String, Resource>();
+
+	public LexicalRdf() {
+
+	}
 
 	/**
 	 * @return the URI for this schema
 	 */
 	public static String getUri() {
 		return uri;
-	}
-
-	public LexicalRdf() {
 	}
 
 	public LexicalRdf(Model m) {
@@ -62,11 +89,11 @@ public class LexicalRdf {
 
 	public void addLexicalResources(Model m) {
 		for (int i = 0; i < LEXICALS.length; i++) {
-			String lexical = LEXICALS[i];
+			String lexical = LEXICALS[i][0];
 			Resource r = m.createResource(getUriForLexical(lexical));
-			int chunk = HELP_CHUNK_START + i;
+			String helpUrl = LEXICALS[i][1];
 			r.addProperty(NAME, lexical.toUpperCase());
-			r.addProperty(HELP_URL, HELP_BASE_URL + chunk);
+			r.addProperty(HELP_URL, helpUrl);
 			lexicalResources.put(lexical, r);
 		}
 	}
@@ -74,4 +101,13 @@ public class LexicalRdf {
 	public Resource getResource(String lexical) {
 		return lexicalResources.get(lexical);
 	}
+
+	public Map<String, Resource> getLexicalResources() {
+		return lexicalResources;
+	}
+
+	public void setLexicalResources(Map<String, Resource> lexicalResources) {
+		this.lexicalResources = lexicalResources;
+	}
+
 }

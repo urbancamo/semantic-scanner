@@ -17,12 +17,14 @@ public class ScanWebSocketServlet extends WebSocketServlet {
 
 	public final Set<ScanWebSocket> scanStreams = new CopyOnWriteArraySet<ScanWebSocket>();
 
-	protected void doGet(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	}
 
-	public WebSocket doWebSocketConnect(HttpServletRequest request,
-			String protocol) {
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		resp.sendRedirect("/");
+	}
+
+	public WebSocket doWebSocketConnect(HttpServletRequest request, String protocol) {
 		return new ScanWebSocket(scanStreams);
 	}
 }

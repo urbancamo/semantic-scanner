@@ -7,6 +7,6 @@
 	<!-- Scans within the base package of the application for @Components to configure as beans -->
 
 	<import resource="db.xml"/>
-	<import resource="user.xml"/>
+	<import resource="semantic-scanner.xml"/>
 	
 </beans>

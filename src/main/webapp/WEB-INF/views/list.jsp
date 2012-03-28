@@ -2,7 +2,7 @@
 <%@ page session="false"%>
 <html>
 <head>
-<title>Listing Files</title>
+<title>Query Results</title>
 </head>
 <body>
 <h1>Listing Files</h1>

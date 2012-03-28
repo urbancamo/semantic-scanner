@@ -1,0 +1,5 @@
+PREFIX lexical:	<http://hecnet.eu/lexical-rdf/1.0#>
+SELECT DISTINCT ?name
+WHERE {	?uri lexical:NAME ?name . }
+ORDER BY asc(?name)
+

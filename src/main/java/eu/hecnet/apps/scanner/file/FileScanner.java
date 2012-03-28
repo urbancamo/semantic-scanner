@@ -78,11 +78,12 @@ public class FileScanner {
 					String line = br.readLine();
 					if (line != null) {
 						if (line.toUpperCase().contains("F$")) {
-							for (String lexical : LexicalRdf.LEXICALS) {
-								if (line.contains(lexical)) {
+							for (String[] lexical : LexicalRdf.LEXICALS) {
+								String lexicalName = lexical[0];
+								if (line.contains(lexicalName)) {
 									// Add a link to the lexical
 									Model m = resource.getModel();
-									Resource lexicalResource = lexicalRdf.getResource(lexical);
+									Resource lexicalResource = lexicalRdf.getResource(lexicalName);
 									m.add(resource, FILE.LEXICAL_USE, lexicalResource.getURI());
 								}
 							}

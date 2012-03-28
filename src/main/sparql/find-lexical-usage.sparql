@@ -1,0 +1,8 @@
+PREFIX file:	<http://hecnet.eu/file-rdf/1.0#>
+SELECT ?uri ?lexical
+WHERE {	?uri file:CONTENT_TYPE "vms/dcl-script" .
+    	?uri file:LEXICAL_USE "http://hecnet.eu/lexical-rdf/1.0#F$GETDVI" .
+    	?uri file:LEXICAL_USE ?lexical
+    	. 
+}
+

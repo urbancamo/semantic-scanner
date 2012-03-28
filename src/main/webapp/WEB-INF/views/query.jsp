@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="sf"%>
 <%@ page session="false" %>
 <html lang="en">
 <head>
@@ -14,9 +15,17 @@
 <script type="text/javascript" charset="utf-8" src="resources/js/html5-json-pie.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
-	    $("#dateFrom").datepicker();
-	    $("#dateTo").datepicker();
-	  });
+        $("#dclDiv").hide();
+ 
+		$("#type").change(function() {
+			var type = $("#type").val();
+			if (type = "DCL Script") {
+				$("#dclDiv").show();
+			} else {
+				$("#dclDiv").hide();
+			}
+		});
+	});	
 </script>
 </head>
 <body>
@@ -26,45 +35,40 @@
 	</hgroup>  
 </header>
 <article>
-	<form name="query" method="post">
-		<label for="model">Model</label>
-		<select id="model">
-	        <c:forEach var="model" items="${fileList}">
-	       		<option>${model}</option>
-	        </c:forEach>
-		</select>
-		<label for="dateFrom">Date From</label>
-		<select id="dateFrom">
-			<c:forEach var="year" items="${yearList}">
-				<option>${year}</option>
-			</c:forEach>
-		</select>
-		<label for="dateTo">Date To</label>
-		<select id="dateTo">
-			<c:forEach var="year" items="${yearList}">
-				<option>${year}</option>
-			</c:forEach>
-		</select>
-		<label for="sizes">Size up to</label>
-		<select id="sizes">
-			<c:forEach var="size" items="${sizeList}">
-				<option>${size}</option>
-			</c:forEach>
-		</select>
-		<label for="features">Features</label>
-		<select id="features">
-			<c:forEach var="feature" items="${featureList}">
-				<option>${feature}</option>
-			</c:forEach>
-		</select>
-		<label for="types">Mime Type</label>
-		<select id="types">
-			<c:forEach var="type" items="${typeList}">
-				<option>${type}</option>
-			</c:forEach>
-		</select>
-		<input type="submit" name="action" value="Execute"/>
-	</form>
+	<sf:form method="POST" modelAttribute="queryOptions">
+		<sf:label path="model">Model</sf:label>
+		<sf:select path="model" items="${models}">
+		</sf:select>
+
+		<sf:label path="fromYear">Date From</sf:label>
+		<sf:select path="fromYear" items="${fromYears}">
+		</sf:select>
+
+		<sf:label path="toYear">Date To</sf:label>
+		<sf:select path="toYear" items="${toYears}">
+		</sf:select>
+
+		<sf:label path="size">Size up to</sf:label>
+		<sf:select path="size" items="${sizes}" itemLabel="name" itemValue="size" />
+
+		<sf:label path="feature">Features</sf:label>
+		<sf:select path="feature" items="${features}">
+		</sf:select>
+
+		<sf:label path="type">Mime Type</sf:label>
+		<sf:select path="type" items="${types}"  itemLabel="description" itemValue="mimeType"/>
+
+		<sf:label path="searchText">Search Text:</sf:label>
+		<sf:input path="searchText"/>
+
+		<div id="dclDiv">
+			<sf:label path="lexical">Lexical Function:</sf:label>
+			<sf:select path="lexical">
+				<sf:options items="${lexicals}"/>
+			</sf:select>
+		</div>
+		<sf:input path="action" type="submit" value="Execute"/>
+	</sf:form>
 </article>
 <aside>
 	<nav>
