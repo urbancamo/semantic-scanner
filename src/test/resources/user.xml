@@ -11,11 +11,11 @@
 	  </property>
 	</bean>
 	
-	<bean id="archiveScanExecutor" class="eu.hecnet.apps.scanner.ArchiveScanExecutor"/>
+	<bean id="archiveScanExecutor" class="uk.m0nom.apps.scanner.ArchiveScanExecutor"/>
 	
-	<bean id="archiveScanner" class="eu.hecnet.apps.scanner.ArchiveScanner"/>  
+	<bean id="archiveScanner" class="uk.m0nom.apps.scanner.ArchiveScanner"/>
 	
-	<bean id="defaultScanCommand" class="eu.hecnet.apps.scanner.ScanCommand">
+	<bean id="defaultScanCommand" class="uk.m0nom.apps.scanner.ScanCommand">
 		<property name="archiveName" value="#{envProps['archive.name']}"/>  
 		<property name="archiveBase" value="#{envProps['archive.base']}"/>  
 	</bean>

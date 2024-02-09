@@ -38,7 +38,7 @@
 
 	<servlet>
 		<servlet-name>scanWebSocket</servlet-name>
-		<servlet-class>eu.hecnet.apps.websocket.ScanWebSocketServlet</servlet-class>
+		<servlet-class>uk.m0nom.apps.websocket.ScanWebSocketServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>scanWebSocket</servlet-name>
@@ -47,7 +47,7 @@
 
 	<servlet>
 		<servlet-name>queryWebSocket</servlet-name>
-		<servlet-class>eu.hecnet.apps.websocket.QueryWebSocketServlet</servlet-class>
+		<servlet-class>uk.m0nom.apps.websocket.QueryWebSocketServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>queryWebSocket</servlet-name>

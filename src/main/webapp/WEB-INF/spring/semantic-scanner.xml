@@ -11,15 +11,15 @@
 	  </property>
 	</bean>
 	
-	<bean id="archiveScanExecutor" class="eu.hecnet.apps.scanner.ArchiveScanExecutor"/>
+	<bean id="archiveScanExecutor" class="uk.m0nom.apps.scanner.ArchiveScanExecutor"/>
 	
-	<bean id="archiveScanner" class="eu.hecnet.apps.scanner.ArchiveScanner"/>  
+	<bean id="archiveScanner" class="uk.m0nom.apps.scanner.ArchiveScanner"/>
 	
-	<bean id="lexicalRdf" class="eu.hecnet.jena.vms.LexicalRdf"/>  
+	<bean id="lexicalRdf" class="uk.m0nom.jena.vms.LexicalRdf"/>
 	
-	<bean id="queryExecutor" class="eu.hecnet.apps.query.QueryExecutor"/>
+	<bean id="queryExecutor" class="uk.m0nom.apps.query.QueryExecutor"/>
 	
-	<bean id="defaultScanCommand" class="eu.hecnet.apps.scanner.ScanCommand">
+	<bean id="defaultScanCommand" class="uk.m0nom.apps.scanner.ScanCommand">
 		<property name="archiveName" value="#{envProps['archive.name']}"/>  
 		<property name="archiveBase" value="#{envProps['archive.base']}"/>  
 	</bean>
